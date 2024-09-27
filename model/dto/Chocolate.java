@@ -3,7 +3,7 @@ package com.hw5.model.dto;
 import java.util.Objects;
 import java.util.Set;
 
-public class Chocolate {
+public class Chocolate implements Comparable<Chocolate>{
 
 	private String name; // 초콜릿 이름
 	private int price; // 초콜릿 가격
@@ -90,7 +90,11 @@ public class Chocolate {
 	public String toString() {
 		return "제품명 : " + name + " / 가격 : " + price + " / 제조일 : " + date + " / 재료 : " + materialsAsString();
 	}
-	
-	
+
+	@Override
+	public int compareTo(Chocolate o) {
+		return this.getMaterials().size() - o.getMaterials().size();
+	}
+
 	
 }

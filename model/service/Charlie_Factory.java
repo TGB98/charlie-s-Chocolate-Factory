@@ -23,6 +23,7 @@ public class Charlie_Factory {
 	private Map<Integer, String> matMap = new HashMap<Integer, String>();
 	
 	
+	
 	public Charlie_Factory() {
 		
 		// 기본 등록 재료
@@ -87,6 +88,7 @@ public class Charlie_Factory {
 			System.out.println("6. 초콜릿 재료 추가");
 			System.out.println("7. 초콜릿 재료 삭제");
 			System.out.println("8. 초콜릿 재료 목록 조회");
+			System.out.println("9. 초콜릿 재료 갯수로 오름차순 조회");
 			System.out.println("0. 초콜릿 공장 닫기");
 			
 			System.out.print("실행할 번호 입력 : ");
@@ -104,6 +106,7 @@ public class Charlie_Factory {
 				case 6 : matPut(); break;
 				case 7 : matRemove(); break;
 				case 8 : showMatList(); break;
+				case 9 : sortByMatSize(); break;
 				case 0 : System.out.println("초콜릿 공장 가동 종료"); break;
 				}
 			}
@@ -337,6 +340,21 @@ public class Charlie_Factory {
 		int index = 1;
 		for(Chocolate choco : chocoList) {
 			System.out.println((index++) + ". " + choco);
+		}
+	}
+	
+	
+	/**
+	 * 재료 갯수가 적은 순부터 많은 순으로 오름차순 정렬 조회
+	 */
+	public void sortByMatSize() {
+		System.out.println("<재료갯수로 제품 조회>");
+		List<Chocolate> chocoList = new ArrayList<Chocolate>(chocoSet);
+		
+		Collections.sort(chocoList);
+		
+		for(Chocolate choco : chocoList) {
+			System.out.println(choco);
 		}
 	}
 	
