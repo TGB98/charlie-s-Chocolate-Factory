@@ -36,9 +36,9 @@ public class Charlie_Factory {
 		// 현재 생산된 초콜릿 제품
 		Chocolate darkChoco = new Chocolate("다크초콜릿", 1500, "20240918", addMat(1,4));
 		Chocolate milkChoco = new Chocolate("밀크초콜릿", 2000, "20240917", addMat(1,2,3));
-		Chocolate amondChoco = new Chocolate("아몬드 초콜릿", 2500, "20240920", addMat(1,3,5));
-		Chocolate zzangChoco = new Chocolate("신짱구 초콜릿", 3000, "20240921", addMat(1,2,3,5));
-		Chocolate dogChoco = new Chocolate("흰둥이 초콜릿", 4000, "20240924", addMat(1,4,5));
+		Chocolate amondChoco = new Chocolate("아몬드초콜릿", 2500, "20240920", addMat(1,3,5));
+		Chocolate zzangChoco = new Chocolate("신짱구초콜릿", 3000, "20240921", addMat(1,2,3,5));
+		Chocolate dogChoco = new Chocolate("흰둥이초콜릿", 4000, "20240924", addMat(1,4,5));
 		
 		// 컬렉션에 추가
 		chocoSet.add(milkChoco);
@@ -289,7 +289,9 @@ public class Charlie_Factory {
 						System.out.print("제품 재료 수정 ( 종료는 'q'를 입력 ) : ");
 						try {
 							String productMaterial = sc.next();
-							if(productMaterial.equalsIgnoreCase("q")) break;
+							if(productMaterial.equalsIgnoreCase("q")) {
+								System.out.println("제품 정보 수정을 완료했습니다."); break;
+							}
 							
 							int materialKey = Integer.parseInt(productMaterial);
 							String material = matMap.get(materialKey);
@@ -298,7 +300,7 @@ public class Charlie_Factory {
 							
 							choco.setMaterials(updateMat);
 							flag = true;
-							System.out.println("제품 정보 수정이 완료되었습니다.");
+							System.out.println(material + "가(이) 추가되었습니다.");
 							
 						}
 						catch (Exception e) {
